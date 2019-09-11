@@ -1,11 +1,6 @@
 export type Square = "X" | "O" | "";
 export type Board = Square[][];
 
-export type BoardState = {
-    currentPiece: Square,
-    board: Board
-};
-
 export const isGameWon = (board: Board): Boolean => {
     for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
         for (let cellIndex = 0; cellIndex < board[rowIndex].length; cellIndex++) {

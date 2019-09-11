@@ -1,7 +1,12 @@
 import { Component } from "react";
-import { drawGame, drawTitle } from "../helpers/boardViewHelper";
-import { Square, BoardState, Board } from "../helpers/boardHelper";
+import { drawGame, drawTitle } from "./components/boardViewHelper";
+import { Square, Board } from "./code/boardHelper";
 import * as React from "react";
+
+export type BoardState = {
+    currentPiece: Square,
+    board: Board
+};
 
 export type HandleCellOnClickFunction = (board: Board, piece: Square, ycord: number, xcord: number) => void;
 export type HandleBoardSizeOnClick = (boardSize: number) => void;
