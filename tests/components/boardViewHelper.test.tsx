@@ -1,31 +1,10 @@
-import { isGameWon, Board, isGameDraw } from "../../src/code/boardHelper";
-import { drawGame, drawTable, drawTitle } from "../../src/components/boardViewHelper";
+
+import { drawGame, drawTitle } from "../../src/components/boardViewHelper";
 import { configure, shallow } from "enzyme";
 import * as Adapter from "enzyme-adapter-react-16";
-import * as React from "react";
-import { AssertionError } from "assert";
-import { HandleBoardSizeOnClick } from "../../src/App";
+import { boardWonVertical, boardPlaying, boardDraw } from "../fakes/fakes";
 
 configure({ adapter: new Adapter() });
-
-
-const boardWonVertical: Board = [
-    ["X", "", ""],
-    ["X", "", ""],
-    ["X", "", ""]
-];
-
-const boardDraw: Board = [
-    ["X", "O", "X"],
-    ["X", "O", "X"],
-    ["O", "X", "O"]
-];
-
-const boardPlaying: Board = [
-    ["X", "X", ""],
-    ["", "", ""],
-    ["", "", ""]
-];
 
 test('drawGame_WithGameWon_ReturnsWonGameText', () => {
     const result = shallow(drawGame(boardWonVertical, "X", null));

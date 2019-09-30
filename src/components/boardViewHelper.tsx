@@ -1,7 +1,7 @@
 import * as React from "react";
-import { isGameWon, isGameDraw, Board, Square } from "../code/boardHelper";
+import { isGameWon, isGameDraw } from "../code/boardHelper";
 import { h1Style, tableStyle, tdStyle } from "../style/AppStyle";
-import { HandleBoardSizeOnClick, HandleCellOnClickFunction } from "../App";
+import { HandleCellOnClickFunction, HandleBoardSizeOnClick, Square, Board } from "../code/models";
 
 export const drawGame = (board: Board, currentPiece: Square, handleCellOnClick: HandleCellOnClickFunction) => {
     if (isGameWon(board))

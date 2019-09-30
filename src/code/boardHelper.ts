@@ -1,5 +1,4 @@
-export type Square = "X" | "O" | "";
-export type Board = Square[][];
+import { Board } from "./models";
 
 export const isGameWon = (board: Board): Boolean => {
     for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {

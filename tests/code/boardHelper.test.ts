@@ -1,42 +1,5 @@
-import { isGameWon, Board, isGameDraw } from "../../src/code/boardHelper";
-
-const boardWonHorizontal: Board = [
-    ["X", "X", "X"],
-    ["", "", ""],
-    ["", "", ""]
-];
-
-
-const boardWonLeftDiagonal: Board = [
-    ["X", "", ""],
-    ["", "X", ""],
-    ["", "", "X"]
-];
-
-
-const boardWonRightDiagonal: Board = [
-    ["", "", "X"],
-    ["", "X", ""],
-    ["X", "", ""]
-];
-
-const boardWonVertical: Board = [
-    ["X", "", ""],
-    ["X", "", ""],
-    ["X", "", ""]
-];
-
-const boardDraw: Board = [
-    ["X", "O", "X"],
-    ["X", "O", "X"],
-    ["O", "X", "O"]
-];
-
-const boardPlaying: Board = [
-    ["X", "X", ""],
-    ["", "", ""],
-    ["", "", ""]
-];
+import { isGameWon, isGameDraw } from "../../src/code/boardHelper";
+import { boardWonLeftDiagonal, boardWonRightDiagonal, boardWonHorizontal, boardWonVertical, boardDraw, boardPlaying } from "../fakes/fakes";
 
 test('isGameWon_WithGameWon_ReturnsTrue', () => {
     expect(isGameWon(boardWonLeftDiagonal)).toBe(true);
