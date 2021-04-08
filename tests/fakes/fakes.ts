@@ -12,6 +12,12 @@ export const boardPlaying: Board = [
     ["", "", ""]
 ];
 
+export const boardEmpty: Board = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+];
+
 export const boardWonVertical: Board = [
     ["X", "", ""],
     ["X", "", ""],

@@ -16,9 +16,9 @@ export const drawTitle = (currentSize: number, handleBoardSizeOnClick: HandleBoa
     <div>
         <h1 style={h1Style}>TicTacToe</h1>
         <div style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto" }}>
-            <button id="decreaseButton" onClick={() => handleBoardSizeOnClick(currentSize - 1)}>Decrease Board Size</button>
+            <button data-testid="decreaseButton" onClick={() => handleBoardSizeOnClick(currentSize - 1)}>Decrease Board Size</button>
             <button onClick={() => handleBoardSizeOnClick(currentSize)}>Reset</button>
-            <button id="increaseButton" onClick={() => handleBoardSizeOnClick(currentSize + 1)}>Increase Board Size</button>
+            <button data-testid="increaseButton" onClick={() => handleBoardSizeOnClick(currentSize + 1)}>Increase Board Size</button>
         </div>
     </div>;
 
@@ -28,13 +28,15 @@ export const drawGameDraw = () => <h1 style={h1Style}>Nobody has won the game!</
 
 export const drawTable = (board: Board, currentPiece: Square, handleCellOnClick: Function) =>
     <table style={tableStyle}>
-        {board.map((row, rowIndex) =>
-            <tr key={rowIndex}>{row.map((cell, cellIndex) =>
-                <td key={`${rowIndex}-${cellIndex}`}
-                    style={{ ...tdStyle, backgroundColor: cell === "" ? "white" : "lightgrey" }}
-                    onClick={() => cell === "" ? handleCellOnClick(board, currentPiece, rowIndex, cellIndex) : null}>{cell}
-                </td>
+        <tbody>
+            {board.map((row, rowIndex) =>
+                <tr key={rowIndex}>{row.map((cell, cellIndex) =>
+                    <td data-testid={`td-${rowIndex}-${cellIndex}`} key={`${rowIndex}-${cellIndex}`}
+                        style={{ ...tdStyle, backgroundColor: cell === "" ? "white" : "lightgrey" }}
+                        onClick={() => cell === "" ? handleCellOnClick(board, currentPiece, rowIndex, cellIndex) : null}>{cell}
+                    </td>
+                )}
+                </tr>
             )}
-            </tr>
-        )}
+        </tbody>
     </table>
